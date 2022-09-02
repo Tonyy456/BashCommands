@@ -33,3 +33,4 @@ dems=/fs/ess/scratch/PZS0720/tdalesandro/mosaicking/setsm_postprocessing_python/
 stack=/fs/ess/scratch/PZS0720/tdalesandro/mosaicking/setsm_postprocessing_python/coregisterStack.py
 strip=/fs/ess/scratch/PZS0720/tdalesandro/mosaicking/setsm_postprocessing_python/stripSearch.py
 note=/users/PZS0720/tdalesandro/prsnlsp/note.txt
+gitnote=/users/PZS0720/tdalesandro/prsnlsp/gitnote.txt
