@@ -1,0 +1,52 @@
+#!/bin/bash
+
+SAVEFILE=/Users/ajdalesandro/tony/scripts/saved_jumps.txt
+TEMPFILE=/Users/ajdalesandro/tony/temp.txt
+handleFlag() {
+        leave=0
+        if [ $1 = '-print' ]; then
+                echo -----$SAVEFILE-----
+                cat $SAVEFILE
+        fi
+        if [ $1 = '-clear' ]; then
+                cp /dev/null $SAVEFILE
+                echo cleared $SAVEFILE
+        fi
+        if [ $1 = '-edit' ]; then
+                vim $SAVEFILE
+        fi
+        if [ $1 = '-replace' ]; then
+                rep=1
+                return
+        fi
+        leave=1
+}
+main(){
+        param=$1
+        rep=0
+        if [[ "$1" = *"-"* ]]; then
+                handleFlag "$@"
+                if [ $leave = 1 ]; then
+                        return
+                fi
+                param=$2
+        fi
+
+        if [ $param ]; then
+                sed -i "" "/$param=.*/d" $SAVEFILE
+                if [ $rep = 1 ]; then
+                        sed -i "" "s@.*=$PWD@@g" $SAVEFILE
+                        echo replaced duplicated
+                fi
+                sed -i "" '/^[[:space:]]*$/d' $SAVEFILE
+                echo $param=$PWD >> $SAVEFILE
+                echo saved $PWD
+        else
+                echo need a name. ex: set python
+        fi
+}
+main "$@"
+unset SAVEFILE
+unset leave
+unset rep
+unset handleFlag

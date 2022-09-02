@@ -1,0 +1,30 @@
+#!/bin/bash
+
+SAVEFILE=/users/PZS0720/tdalesandro/prsnlsp/scripts/saved_jumps.txt
+main() {
+	if [ $1 == '-print' ]; then
+		echo -----$SAVEFILE-----
+		cat $SAVEFILE
+		return
+	fi
+	if [ $1 == '-edit' ]; then
+		vim $SAVEFILE
+		return
+	fi
+	if [ $1 == '-clear' ]; then
+		cp /dev/null $SAVEFILE
+		return
+	fi
+
+	if [ $1 ]; then
+		echo $1=$PWD >> $SAVEFILE
+		echo saved $PWD
+	else
+		echo did not save. need a name other than \'\'
+	fi
+}
+main $1
+#REF="SETPOS$1"
+#export typeset "$REF=$(pwd)"
+#echo Saving: ${!REF}
+#export !REF=$(pwd)
