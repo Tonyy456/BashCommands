@@ -9,7 +9,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 INSTALL_DIR=$(dirname $SCRIPT_DIR)
 
 # bash scripts to set things up
-source $SCRIPT_DIR/aliases
+
 source $SCRIPT_DIR/prompt_config
 export PATH=$PATH:$INSTALL_DIR/scripts/
 
@@ -19,4 +19,3 @@ if test -f "$PF"; then
 	. $PF
 fi
 
-alias bash='. /users/PZS0720/tdalesandro/tony/setup_git/files/bashconfig'
