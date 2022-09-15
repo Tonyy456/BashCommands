@@ -1,0 +1,11 @@
+you make files of info with titles.
+
+titles = # title
+
+you parse all the files and then you select which info files you want to search and then you type key words.
+
+it returns any titles wiht matching key words
+
+if more than 10 matches then it asks you to choose titles that look correct or print all.
+
+stdout the info under the title
