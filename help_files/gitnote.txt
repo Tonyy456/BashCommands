@@ -1,2 +1,4 @@
- 1984  git remote set-url origin https://github.com/Tonyy456/CSE-Labs.git
- 1985  git remote add origin https://github.com/Tonyy456/CSE-Labs.git
+# fix tracking 
+
+git remote set-url origin https://github.com/Tonyy456/CSE-Labs.git
+git remote add origin https://github.com/Tonyy456/CSE-Labs.git
