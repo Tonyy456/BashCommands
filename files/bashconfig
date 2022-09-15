@@ -18,3 +18,5 @@ export PF=$SCRIPT_DIR/pf
 if test -f "$PF"; then
 	. $PF
 fi
+
+alias bash='. /users/PZS0720/tdalesandro/tony/setup_git/files/bashconfig'

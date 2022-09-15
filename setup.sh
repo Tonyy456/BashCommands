@@ -10,5 +10,6 @@ touch $SCRIPT_DIR/scripts/save_files/saved_edits.txt
 touch $SCRIPT_DIR/scripts/save_files/saved_jumps.txt
 touch $SCRIPT_DIR/scripts/save_files/store_copy.txt
 
+echo alias bash=\'. $SCRIPT_DIR/files/bashconfig\' >> $SCRIPT_DIR/files/bashconfig
 echo . $SCRIPT_DIR/files/bashconfig >> ~/.bashrc
 source ~/.bashrc
