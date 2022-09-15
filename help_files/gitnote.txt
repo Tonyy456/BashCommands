@@ -1,2 +1,2 @@
- 1984  git remote set-url origin https://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@github.com/Tonyy456/CSE-Labs.git
- 1985  git remote add origin https://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@github.com/Tonyy456/CSE-Labs.git
+ 1984  git remote set-url origin https://github.com/Tonyy456/CSE-Labs.git
+ 1985  git remote add origin https://github.com/Tonyy456/CSE-Labs.git
