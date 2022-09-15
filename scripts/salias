@@ -1,0 +1,43 @@
+#!/bin/bash
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+PARENT=$(dirname $SCRIPT_DIR)
+SAVEFILE=$PARENT/files/aliases
+
+handleFlag() {
+        if [ "$1" == '-print' ]; then
+                echo -----$SAVEFILE-----
+                cat $SAVEFILE
+		return
+        fi
+        if [ "$1" == '-clear' ]; then
+                cp /dev/null $SAVEFILE
+		echo cleared $SAVEFILE
+		return
+        fi
+        if [ "$1" == '-edit' ]; then
+                vim $SAVEFILE
+		return
+        fi
+	echo unknown flag
+}
+
+main() {
+	if [[ "$1" == "-"* ]]; then
+		handleFlag "$@"
+		return
+	fi
+
+		
+	if [ "$1" ]; then
+		alias "$1"
+		INP=$(echo "$1" | sed -e "s@=@=\"@")
+		INP=$INP\"
+		echo alias "$INP" >> $SAVEFILE
+		unset INP
+	else
+		echo need alias text.
+	fi
+}
+main "$@"
+unset SAVEFILE

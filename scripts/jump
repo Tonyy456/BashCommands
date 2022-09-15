@@ -1,0 +1,44 @@
+#!/bin/bash
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+SAVEN=saved_jumps.txt
+SAVEFILE=$SCRIPT_DIR/save_files/$SAVEN
+
+handleFlag() {
+        if [ $1 == '-print' ]; then
+                echo -----$SAVEFILE-----
+                cat $SAVEFILE
+        fi
+        if [ $1 == '-clear' ]; then
+                cp /dev/null $SAVEFILE
+		echo cleared $SAVEFILE
+        fi
+        if [ $1 == '-edit' ]; then
+                vim $SAVEFILE
+        fi
+}
+VAR=''
+getalias () {
+        while IFS= read -r line; do
+                if [[ "$line" == "$1="* ]]; then
+                        VAR=$(cut -d= -f 2 <<< $line)
+                fi
+        done < $SAVEFILE
+}
+
+main() {
+	if [[ "$1" == *"-"* ]]; then
+		handleFlag "$@"
+		return
+	fi
+
+	getalias "$@"
+	if [ $VAR ]; then
+		cd $VAR
+	else
+		echo unknown jump.
+	fi
+}
+main "$@"
+unset SAVEFILE
+unset VAR

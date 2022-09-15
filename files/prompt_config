@@ -1,0 +1,36 @@
+NC="\[\033[1;37m\]"
+c="\[\033[0;36m\]"
+B="\[\033[0;34m\]"
+Y="\[\033[0;33m\]"
+G="\[\033[0;32m\]"
+DF="\[\033[0;0m\]"
+DB="\[\033[0;0m\]"
+print_d()
+{
+        if [ $PWD == $HOME ]; then
+            echo "~"
+        elif [ $PWD == '/' ]; then
+            echo "Root"
+        else
+            d=$(echo $PWD | sed -e 's@/..*/@@g' -e 's@/@@')
+
+            e=$(echo "$d" | sed -E 's#([^/]{9})[^/]{1,}([^/.]{0})#\1#g' )
+            echo "$e"
+        fi
+}
+git_branch() {
+        d=$(git branch 2> /dev/null)
+        d=$(echo "$d" | sed -e '/^[^*]/d' -e 's@* \(.*\)@\1@')
+        d=$(echo "$d" | sed -E 's#([^/]{6})[^/]{1,}([^/.]{0})#\1#g')
+        if [ ${#d} == 0 ]; then
+                echo "&"
+        else
+                echo "$d"
+        fi
+}
+PS1=""                               #PS1="${NC}[\t] "
+PS1="${PS1}${c}tony${NC}:"
+PS1="${PS1}${B}\$(print_d)"
+PS1="${PS1}${DB}:"
+PS1="${PS1}${Y}\$(git_branch) "
+PS1="${PS1}${DB}$ "

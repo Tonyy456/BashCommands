@@ -1,0 +1,56 @@
+#!/bin/bash
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+SAVEN=store_copy.txt
+SAVEFILE=$SCRIPT_DIR/save_files/$SAVEN
+
+handleFlag() {
+        if [ $1 == '-print' ]; then
+                echo -----$SAVEFILE-----
+                cat $SAVEFILE
+        fi
+        if [ $1 == '-clear' ]; then
+                cp /dev/null $SAVEFILE
+		echo cleared $SAVEFILE
+        fi
+        if [ $1 == '-edit' ]; then
+                vim $SAVEFILE
+        fi
+}
+
+getstore() {
+	while IFS= read -r line; do
+		if [[ "$line" == *"="* ]]; then
+			FULLPATH=$(cut -d= -f 2 <<< $line)
+			NAME=$(cut -d= -f 1 <<< $line)
+		fi
+	done < $SAVEFILE	
+}
+
+main() {
+	if [[ "$1" == *"-"* ]]; then
+		handleFlag "$@"
+		return
+	fi
+
+	if [ $1 ]; then
+                echo $1=$PWD/$1 >> $SAVEFILE
+		echo copied $1, use command again to unload.
+	else
+		getstore
+		if [ $FULLPATH ]; then
+			cp $FULLPATH $NAME
+			cp /dev/null $SAVEFILE
+			echo Unloaded $NAME.
+		else
+			echo Nothing stored, try -print.
+		fi
+	fi
+
+}
+main "$@"
+unset SAVEFILE
+if [ $FULLPATH ]; then
+	unset FULLPATH
+	unset NAME
+fi

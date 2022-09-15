@@ -1,0 +1,51 @@
+#!/bin/bash
+
+#custom command
+alias salias='source salias'
+
+#CD
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias cd..='cd ..'
+alias l..='cd ..; ls'
+
+#RANDOM
+alias bash='. /users/PZS0720/tdalesandro/prsnlsp/.bashconf'
+alias gh='history | grep'
+alias grep='grep -n --color=auto'
+alias githelp="printline && cat /users/PZS0720/tdalesandro/prsnlsp/gitnote.txt && printline"
+alias printline="printf \"\n---------------------------\n\""
+alias notefile='echo /users/PZS0720/tdalesandro/prsnlsp/note.md'
+alias linecount='wc -l'
+alias time="/usr/bin/time -v"
+
+#LS
+alias la='ls -la'
+alias ll='ls -lA'
+alias l.='ls -d .* --color=auto'
+alias ls="ls -l --color=always"
+
+#CP
+alias clearfile='cp /dev/null'
+alias getmakefile="cp /users/PZS0720/tdalesandro/prsnlsp/make_template_simple Makefile"
+alias getslurm="cp /users/PZS0720/tdalesandro/prsnlsp/template.slurm run.slurm"
+
+#VIM
+alias bsh="vim /users/PZS0720/tdalesandro/prsnlsp/.bashconf"
+alias gitnote="vi /users/PZS0720/tdalesandro/prsnlsp/gitnote.txt"
+
+#SETSM
+alias jobcheck="squeue -u tdalesandro"
+alias jobdet='sacct --duplicate -a -o JobId,User%25,Jobname,partition,state,time,state,end,nodelist,AllocTRES%60 --allocations -j'
+alias setsmimport='module load libgeotiff intel/2021.5.0'
+
+#UNSORTED
+alias jump="source jump"
+alias set="setj"
+alias diff="diff -y --suppress-common-lines"
+alias rm="rm -rf"
+alias diff="diff -ys --suppress-common-lines"
+alias note="vim /users/PZS0720/tdalesandro/prsnlsp/note.txt"
+alias cps="copystore"
+alias ls="ls -lh --color=always"

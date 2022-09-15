@@ -1,0 +1,14 @@
+FILE=${BASH_SOURCE[0]}
+FILENAME=$(echo $FILE | sed -e 's@.*/@@g')
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+INSTALL_DIR=$(dirname $SCRIPT_DIR)
+
+# bash scripts to set things up
+source $SCRIPT_DIR/aliases
+source $SCRIPT_DIR/prompt_config
+
+export PATH=$PATH:$INSTALL_DIR/scripts/
+
+#export LANG=en_US.UTF-8
+#export LS_COLORS="$LS_COLORS:di=1;34:*=35" # Colorize ls https://geoff.greer.fm/lscolors/
