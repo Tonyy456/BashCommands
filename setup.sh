@@ -13,7 +13,7 @@ touch $SCRIPT_DIR/files/pf
 
 #replace lines
 sed -i "s@.*alias.*@@g" $SCRIPT_DIR/files/pf
-sed -i "s@.*$SCRIPT_DIR/files/bashconfig@@g" ~/.bashrc
+sed -i "s@.*/files/bashconfig@@g" ~/.bashrc
 sed -i '/^[[:blank:]]*$/ d' $SCRIPT_DIR/files/pf
 
 echo alias bash=\'. $SCRIPT_DIR/files/bashconfig\' >> $SCRIPT_DIR/files/pf
