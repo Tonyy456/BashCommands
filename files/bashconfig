@@ -11,7 +11,7 @@ INSTALL_DIR=$(dirname $SCRIPT_DIR)
 # bash scripts to set things up
 source $SCRIPT_DIR/aliases
 source $SCRIPT_DIR/prompt_config
-export PATH=$PATH$INSTALL_DIR/scripts/
+export PATH=$PATH:$INSTALL_DIR/scripts/
 
 #Use for platform specific bash configuration
 export PF=$SCRIPT_DIR/pf

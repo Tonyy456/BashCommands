@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 FILE=${BASH_SOURCE[0]}
 FILENAME=$(echo $FILE | sed -e 's@.*/@@g')
 
