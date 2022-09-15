@@ -1,3 +1,6 @@
+# cache 
+git config --global credential.helper store
+
 # fix tracking 
 
 git remote set-url origin https://github.com/Tonyy456/CSE-Labs.git
