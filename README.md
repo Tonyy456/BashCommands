@@ -10,5 +10,7 @@ git reset --hard
 ```
 
 # Make sure
-git config user.name "Anthony D'Alesandro"
+```
+git config user.name "Anthony D'Alesandro"  
 git config user.email "ajdalesandro0115@gmail.com"
+```
