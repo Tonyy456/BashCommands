@@ -1,9 +1,0 @@
-# note
-all the files are in branch master. Just a lazy thing I do not really need to fix
-
-try
-```
-git fetch
-git checkout master
-git reset --hard
-```
