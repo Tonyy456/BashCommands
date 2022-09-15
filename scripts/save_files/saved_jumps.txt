@@ -1,2 +1,4 @@
 bashconfig=/home/tdalesandro/.bashconfig
-help_files=/home/tdalesandro/.bashconfig/help_files
+help=/home/tdalesandro/.bashconfig/help_files
+misc=/home/tdalesandro/misc
+scripts=/home/tdalesandro/.bashconfig/scripts
