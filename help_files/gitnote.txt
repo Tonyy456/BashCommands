@@ -2,3 +2,69 @@
 
 git remote set-url origin https://github.com/Tonyy456/CSE-Labs.git
 git remote add origin https://github.com/Tonyy456/CSE-Labs.git
+
+### make new repo from existing
+https://stackoverflow.com/questions/37627160/create-existing-directory-as-repository-in-git
+$ cd cplusplus_learn
+$ git init 
+$ git commit -m 'My first commit'
+$ git remote set-url origin https://github.com/apex-user/cplusplus_learn.git
+$ git push -u origin master
+
+https://gist.github.com/hatamiarash7/c5a975f9b03edc71da878b835ec5e4dd
+
+$ git init
+$ git add . /// git add --all
+$ git commit -m "initialized"
+$ git remote add origin https://github.com/Tonyy456/BashCommands.git 
+$ git push -u main
+
+### make new branch and make it a remote one:
+ > git checkout -b newbranch
+ > git push -u origin newbranch
+
+### commit properly:
+ > git add --all
+ > git commit
+ > git push
+
+### copy file from other branch:
+ > git checkout BRANCH_WITH_FILE -- FILE_I_WANT
+
+### commit to new branch:
+ > git stash
+ > git checkout other-branch
+ > git stash pop
+
+### The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   fetch      Download objects and refs from another repository
+   grep       Print lines matching a pattern
+   init       Create an empty Git repository or reinitialize an existing one
+   log        Show commit logs
+   merge      Join two or more development histories together
+   mv         Move or rename a file, a directory, or a symlink
+   pull       Fetch from and merge with another repository or a local branch
+   push       Update remote refs along with associated objects
+   rebase     Forward-port local commits to the updated upstream head
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+   show       Show various types of objects
+   status     Show the working tree status
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+list branches:
+ > git branch -a
+
+create a branch:
+ > git checkout -b _new_name
+
+checkout a branch:
+ > git checkout _name_of_branch_
+ > git reset --hard
