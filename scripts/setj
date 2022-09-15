@@ -36,7 +36,6 @@ main(){
         fi
 
         if [ $param ]; then
-                echo sed -i "/$param=*/d" $SAVEFILE
                 sed -i "/$param=*/d" $SAVEFILE
                 #sed -i "" "/$param=*/d" $SAVEFILE
                 if [ $rep = 1 ]; then

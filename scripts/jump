@@ -4,6 +4,8 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 SAVEN=saved_jumps.txt
 SAVEFILE=$SCRIPT_DIR/save_files/$SAVEN
 
+echo $SAVEFILE
+
 handleFlag() {
         if [ $1 == '-print' ]; then
                 echo -----$SAVEFILE-----

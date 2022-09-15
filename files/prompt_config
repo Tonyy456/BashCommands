@@ -1,3 +1,5 @@
+echo prompt configuring
+
 NC="\[\033[1;37m\]"
 c="\[\033[0;36m\]"
 B="\[\033[0;34m\]"

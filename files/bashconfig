@@ -1,3 +1,7 @@
+#!/bin/bash
+
+echo PERSONAL BASH CONFIG RUNNING
+
 FILE=${BASH_SOURCE[0]}
 FILENAME=$(echo $FILE | sed -e 's@.*/@@g')
 
@@ -7,8 +11,10 @@ INSTALL_DIR=$(dirname $SCRIPT_DIR)
 # bash scripts to set things up
 source $SCRIPT_DIR/aliases
 source $SCRIPT_DIR/prompt_config
+export PATH=$PATH$INSTALL_DIR/scripts/
 
-export PATH=$PATH:$INSTALL_DIR/scripts/
-
-#export LANG=en_US.UTF-8
-#export LS_COLORS="$LS_COLORS:di=1;34:*=35" # Colorize ls https://geoff.greer.fm/lscolors/
+#Use for platform specific bash configuration
+export PF=$SCRIPT_DIR/pf
+if test -f "$PF"; then
+	. $PF
+fi
